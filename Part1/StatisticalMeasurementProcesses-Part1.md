@@ -12,11 +12,11 @@
 > Write its explicit functional form and name every input.
 
 During optical density (OD) normalization, the Opentrons flex liquid handler dispenses
-liquids with variable accuracy and precision errors. At the benchtop and at
+liquids with variable accuracy and precision errors. At the benchtop and
 low-throughput these errors can easily be accounted for, but at high-throughput in
 automation, these small errors can cause major issues, such as:
 
-- Increased variability in OD readings, leading to inconsistent results
+- Increased variability in OD readings across wells, leading to unnormalized OD values
 - Potential for errors in downstream processes relying on normalized OD measurements
 - Reagent & pipette tip waste
 
@@ -46,7 +46,10 @@ dispense volumes.
 
 Additionally, the pipette tip volume constrains how much volume is dispensed each round.
 The starting volume of each well is 200 µL, which results in the initial splitting into
-working and starting plate needing 5 dispenses for example.
+working and starting plate needing 5 dispenses for example. The graphic below shows
+this split and how the dispense error accumulates across the 5 dispenses.
+
+![The 5-dispense split and its accumulating error](./figures/dispense_split_error.png)
 
 ### Key Assumptions
 1. The worst-case error is applied to every  dispense regardless of its volume, rather 
@@ -61,6 +64,11 @@ than using the row matching each dispense volume.
 > terms. If you claim that the variables are independent you must justify why. Produce
 > an uncertainty budget: a table of input quantities, their standard uncertainties,
 > sensitivity coefficients, and contributions to the total. Identify the dominant terms.
+
+| Input Quantity     | Standard Uncertainty | Sensitivity Coefficient | Contribution to Total |
+|--------------------|----------------------|-------------------------|-----------------------|
+| Volume             |               |                       |                   |
+| Dispense Error     |               |                      |                  |
 
 ## 1.3 Monte Carlo propagation
 
