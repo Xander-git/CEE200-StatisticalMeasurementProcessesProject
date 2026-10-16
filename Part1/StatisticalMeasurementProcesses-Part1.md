@@ -20,20 +20,28 @@ automation, these small errors can cause major issues, such as:
 - Potential for errors in downstream processes relying on normalized OD measurements
 - Reagent & pipette tip waste
 
+The process uses three plates, shown below. Liquid only moves into the destination plate;
+nothing is ever dispensed back to the source plate.
+
+| Plate             | Contents                          | Role in the process                                   |
+|-------------------|-----------------------------------|-------------------------------------------------------|
+| Source plate      | Starting culture                  | Supplies culture to the destination plate             |
+| Media plate       | Media only                        | Supplies media to dilute the destination plate        |
+| Destination plate | Culture, diluted with media       | The plate that is normalized to the target OD         |
+
+![Plate Diagrams](./figures/plates.svg)
+
 During normalization, the liquid handler dispenses liquids hundreds of times until the
-OD of each well in the plate is normalized to a range of 1.0 +/- 0.02 OD. At the start
-of the process, half of the volume of each well in the plate is split into two equal
-volumes. There's a main plate which is the "working" plate and then the split plate is
-the "stock" plate. On the equipment, we also have a media plate with just the media for
-dilution. We dilute the working plate with liquid form the media plate, and use the
-stock plate in the event the working plate is overdiluted. The starting concentration of
-each well has to be over 1.0 OD. The volume to be dispensed is calculated for each well
-using:
+OD of each well in the destination plate is normalized to a range of 1.0 +/- 0.02 OD. At
+the start of the process, half of the volume of each source well is transferred to the
+matching destination well. The destination plate is then diluted with media from the
+media plate. The starting concentration of each well has to be over 1.0 OD. The volume of
+media to be dispensed is calculated for each well using:
 
 $$C_{1}V_{1}=C_{2}V_{2}$$
 
 In theory, this process should be completed in a single round, but the dispensing error
-and volume constraints often leads to the need for multiple rounds until the OD of each 
+and volume constraints often leads to the need for multiple rounds until the OD of each
 well is within the normal range. The opentrons flex pipette specifications are as follows:
 
 ![Opentrons Flex Pipette Specs](./OpentronsFlexPipetteSpecs.png)
@@ -45,16 +53,17 @@ highest error for this tip, and the specification table gives lower errors at la
 dispense volumes. 
 
 Additionally, the pipette tip volume constrains how much volume is dispensed each round.
-The starting volume of each well is 200 µL, which results in the initial splitting into
-working and starting plate needing 5 dispenses for example. The graphic below shows
-this split and how the dispense error accumulates across the 5 dispenses.
+The starting volume of each source well is 200 µL, so the initial transfer of half of it
+(100 µL) to the destination plate needs 5 dispenses of 20 µL, for example. The graphic
+below shows this transfer and how the dispense error accumulates across the 5 dispenses.
 
-![The 5-dispense split and its accumulating error](./figures/dispense_split_error.png)
+![The 5-dispense transfer and its accumulating error](./figures/dispense_split_error.png)
 
 ### Key Assumptions
 1. The worst-case error is applied to every  dispense regardless of its volume, rather 
 than using the row matching each dispense volume.
 2. Plate reader error & dispense error from viscosity is assumed to be negligible.
+
 
 ## 1.2 Analytic Propagation of Uncertainty
 
