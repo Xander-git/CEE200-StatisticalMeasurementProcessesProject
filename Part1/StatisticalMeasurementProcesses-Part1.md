@@ -33,8 +33,8 @@ using:
 $$C_{1}V_{1}=C_{2}V_{2}$$
 
 In theory, this process should be completed in a single round, but the dispensing error
-often leads to the need of multiple rounds in order to have the OD achieve the normal
-range. The opentrons flex pipette specifications are as follows:
+and volume constraints often leads to the need for multiple rounds until the OD of each 
+well is within the normal range. The opentrons flex pipette specifications are as follows:
 
 ![Opentrons Flex Pipette Specs](./OpentronsFlexPipetteSpecs.png)
 [Opentrons Flex Pipette Documentation](https://docs.opentrons.com/flex/system-description/pipettes/#1-channel-pipette-specifications)
@@ -42,9 +42,7 @@ range. The opentrons flex pipette specifications are as follows:
 This simulation will use the Opentrons specification for the 20 µL tip at a 1 µL dispense
 (random error reported as % CV, systematic error as a +/- bound). This is the row with the
 highest error for this tip, and the specification table gives lower errors at larger
-dispense volumes. For simplicity, this single worst-case row is applied to every
-dispense regardless of its volume, rather than using the row matching each dispense
-volume.
+dispense volumes. 
 
 Additionally, the pipette tip volume constrains how much volume is dispensed each round.
 The starting volume of each well is 200 µL, which results in the initial splitting into
@@ -53,7 +51,7 @@ working and starting plate needing 5 dispenses for example.
 ### Key Assumptions
 1. The worst-case error is applied to every  dispense regardless of its volume, rather 
 than using the row matching each dispense volume.
-2. Plate reader error is assumed to be negligible.
+2. Plate reader error & dispense error from viscosity is assumed to be negligible.
 
 ## 1.2 Analytic Propagation of Uncertainty
 
