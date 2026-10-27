@@ -14,9 +14,18 @@ Other links:
 - VIM, English online version (annotated, abridged): https://jcgm.bipm.org/vim/en/info.html
 - VIM DOI page: https://www.bipm.org/en/doi/10.59161/jcgm200-2012
 - Opentrons Flex 1-channel pipette specifications: https://docs.opentrons.com/flex/system-description/pipettes/#1-channel-pipette-specifications
+- Paul's Online Notes (Paul Dawkins, Lamar University), calculus notation used in the notes:
+  - Calculus I, Differentiation Formulas: https://tutorial.math.lamar.edu/Classes/CalcI/DiffFormulas.aspx
+  - Calculus I, Chain Rule: https://tutorial.math.lamar.edu/Classes/CalcI/ChainRule.aspx
+  - Calculus I, Product and Quotient Rule: https://tutorial.math.lamar.edu/Classes/CalcI/ProductQuotientRule.aspx
+  - Calculus I, Linear Approximations: https://tutorial.math.lamar.edu/Classes/CalcI/LinearApproximations.aspx
+  - Calculus II, Taylor Series: https://tutorial.math.lamar.edu/Classes/CalcII/TaylorSeries.aspx
+  - Calculus III, Partial Derivatives: https://tutorial.math.lamar.edu/Classes/CalcIII/PartialDerivatives.aspx
+  - Calculus III, Chain Rule: https://tutorial.math.lamar.edu/Classes/CalcIII/ChainRule.aspx
+  - Calculus III, Tangent Planes and Linear Approximations: https://tutorial.math.lamar.edu/Classes/CalcIII/TangentPlanes.aspx
 
 ## Clauses cited
 
-- GUM: 3.2.3, 3.3.2, 3.3.3, 4.1.1, 4.1.3, 4.3.1, 4.3.7, 4.3.9, 5.1.2, 5.1.3, 5.2.2
+- GUM: 3.2.3, 3.3.2, 3.3.3, 4.1.1, 4.1.3, 4.3.1, 4.3.7, 4.3.9, 5.1.2, 5.1.3, 5.2.2, 6.2.1, F.1.2.3
 - JCGM 101 (Monte Carlo supplement): used as the method reference for the Monte Carlo checks
 - VIM: 2.17 (systematic error), 2.19 (random error), 2.33 (uncertainty budget), 2.50 (input quantity)
